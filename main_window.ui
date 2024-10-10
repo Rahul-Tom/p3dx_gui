@@ -14,23 +14,10 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCommandLinkButton" name="commandLinkButton_Dissconnect">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>520</y>
-      <width>177</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Dissconnect Robot</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
       <width>861</width>
       <height>80</height>
@@ -70,7 +57,7 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>80</y>
       <width>861</width>
       <height>51</height>
@@ -85,9 +72,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_JoyControl">
+      <widget class="QPushButton" name="pushButton_ManualControl">
        <property name="text">
-        <string>Joy Stick Contro</string>
+        <string>Manual Control</string>
        </property>
       </widget>
      </item>
@@ -96,9 +83,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>130</y>
-      <width>421</width>
+      <width>431</width>
       <height>81</height>
      </rect>
     </property>
@@ -129,27 +116,45 @@
      </rect>
     </property>
     <property name="text">
-     <string>Please</string>
+     <string>Robot GUI</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QPushButton" name="pushButton_DisconnectToRobot">
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>360</y>
+      <y>510</y>
       <width>191</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
+    <property name="text">
+     <string>Disconnect to Robot</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>389</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
    </widget>
    <widget class="QPushButton" name="pushButton_StartStopRecord">
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>430</y>
+      <y>450</y>
       <width>191</width>
       <height>41</height>
      </rect>
@@ -157,6 +162,58 @@
     <property name="text">
      <string>Strart Recording</string>
     </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_StartStopRecord_2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>450</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stop Recording</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SaveMap">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>450</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save Map</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>130</y>
+      <width>431</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="pushButton_KeyboardControl">
+       <property name="text">
+        <string>Keyboard control</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_JoyControl">
+       <property name="text">
+        <string>Joy Stick Contro</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
