@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(882, 687)
+        MainWindow.resize(882, 691)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
@@ -110,7 +110,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "P3DX Robot GUI"))
         self.pushButton_ConnectToRobot.setText(_translate("MainWindow", "Connect to ROBOT"))
         self.pushButton_Rviz2.setText(_translate("MainWindow", "Rviz2"))
         self.pushButton_Record.setText(_translate("MainWindow", "Record  Bag File"))
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.pushButton_ManualControl.setText(_translate("MainWindow", "Manual Control"))
         self.pushButton_NewMap.setText(_translate("MainWindow", "New Map"))
         self.pushButton_withMap.setText(_translate("MainWindow", "Select Map"))
-        self.label.setText(_translate("MainWindow", "Robot GUI"))
+        self.label.setText(_translate("MainWindow", "P3DX Robot GUI"))
         self.pushButton_DisconnectToRobot.setText(_translate("MainWindow", "Disconnect to Robot"))
         self.pushButton_StartStopRecord.setText(_translate("MainWindow", "Strart Recording"))
         self.pushButton_StartStopRecord_2.setText(_translate("MainWindow", "Stop Recording"))

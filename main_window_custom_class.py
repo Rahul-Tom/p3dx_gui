@@ -22,6 +22,7 @@ class ButtonDefinition(Ui_MainWindow):
         self.color_control()
         self.button_hide()
         self.label_text()
+        
 
     def init__control_panel(self):
         self.pushButton_ConnectToRobot.clicked.connect(self.pushButton_ConnectToRobot_action)
@@ -65,14 +66,14 @@ class ButtonDefinition(Ui_MainWindow):
 
 
     def pushButton_ConnectToRobot_action(self):
-        cmd = "xhost + && ../../Docker/run.sh"
-        # self.execCommand(cmd)
+        cmd = f'cd $(find / -type d -name "p3dx_docker" 2>/dev/null | head -n 1) && docker-compose up --build'
+        self.execCommand(cmd)
         self.startDelayThread()
         self.pushButton_DisconnectToRobot.show()
         
     
     def pushButton_RQt_action(self):
-        cmd="source /opt/ros/humble/setup.bash && rqt"
+        cmd="source /opt/ros/$ROS_DISTRO/setup.bash && rqt"
         self.execCommand(cmd)
         self.label.setText(f"RQt is started")    
 
@@ -104,13 +105,13 @@ class ButtonDefinition(Ui_MainWindow):
        self.execCommand(cmd) 
 
     def pushButton_JoyControl_action(self):
-        cmd = "source /opt/ros/humble/setup.bash && ros2 launch p3dx_description_ros joystick_launch.py"
+        cmd = "source /opt/ros/$ROS_DISTRO/setup.bash && ros2 launch p3dx_description_ros joystick_launch.py"
         self.execCommand(cmd) 
         self.label.setText(f"Press and hold L2/R2 and left control button to navigate")
 
     def pushButton_NewMap_action(self):
-        cmd0 = "source /opt/ros/humble/setup.bash && ros2 launch p3dx_description_ros online_async_launch.py" #; exec bash
-        cmd1 = "source /opt/ros/humble/setup.bash && ros2 launch p3dx_description_ros joystick_launch.py"
+        cmd0 = "source /opt/ros/$ROS_DISTRO/setup.bash && ros2 launch p3dx_description_ros online_async_launch.py" #; exec bash
+        cmd1 = "source /opt/ros/$ROS_DISTRO/setup.bash && ros2 launch p3dx_description_ros joystick_launch.py"
         self.lineEdit.show()
         # self.line_edit.setStyleSheet("QLineEdit { border: 2px solid red; }")
         self.label.setText(f"Mapping started. Save the map when you done with mapping. Name your map here(without any extension)")
@@ -163,19 +164,20 @@ class ButtonDefinition(Ui_MainWindow):
         self.pushButton_StartStopRecord.hide()
 
     def pushButton_DisconnectToRobot_action(self):
-        cmd0 = "cd ~/Project/Docker/ && docker-compose down"
+        cmd0 = f'cd $(find / -type d -name "p3dx_docker" 2>/dev/null | head -n 1) && docker-compose down'
         cmd1="pkill -f ros2"
         cmd2="pkill -f rqt"
-        cmd3="pkill -f rviz2"
+        
         self.execCommand(cmd0)
         self.execCommand(cmd1)
         self.execCommand(cmd2)
-        self.execCommand(cmd3)
+        
         self.label.setText("Disconnecting ........")
-        time.sleep(2)
+        time.sleep(5)
         self.label.setText("Disconnected from P3DX robot. Connect again")
         self.label.setStyleSheet("color: red;")
         self.button_hide()
+        self.pushButton_DisconnectToRobot.hide()
     
     
     
