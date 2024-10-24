@@ -37,6 +37,7 @@ sudo apt install ros-$ROS_DISTRO-slam-toolbox -y
 sudo apt install python3 python3-pip -y
 sudo apt install python3-pyqt5 -y
 sudo apt install pyqt5-dev-tools -y
+sudo apt install ros-jazzy-twist-mux -y
 ```
 Download Docker Engine
 ```sh
@@ -51,11 +52,21 @@ sudo apt  install docker-compose -y
 
 Clone the repo
 ```sh
-cd ~/Project/src/
+cd ~/Project/p3dx_ws/src/
 git clone https://github.com/Rahul-Tom/p3dx_description_ros.git
+git clone https://github.com/AlexKaravaev/csm.git
+git clone https://github.com/AlexKaravaev/ros2_laser_scan_matcher.git
 ```
 
+Build the workspace
+```sh
+cd ~/Project/p3dx_ws
+colcon build --symlink install
+```
+If you are getting error during colcon build replace #include <tf2_geometry_msgs/tf2_geometry_msgs.h> with #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> in line 47 of header file in include directory of ros2_laser_scan_matcher package.
+
 clone the docker and gui repo
+
 ```sh
 git clone https://github.com/Rahul-Tom/p3dx_gui.git
 git clone https://github.com/Rahul-Tom/p3dx_docker.git
@@ -63,11 +74,11 @@ git clone https://github.com/Rahul-Tom/p3dx_docker.git
 building the docker containers
 #### Before building comment or uncomment every docker files' since RPi architecture (arm64 ) is different from nomal PC/Laptop's architecutre.
 #### Docker files are located with name "Dockerfile" in every folder(humble, noetic, bridge, )
-If you have ROS2 installation on your system consider comminting ros2 serivce called humble from docker-compose file
+If you have ROS2 installation on your system consider commenting ros2 serivce called humble from docker-compose file
 
 ```sh
 cd ~Project/p3dx_docker
-docker-compose up --build
+docker-compose -f arm64_compose.yaml up --build
 ```
 Note that for the first time building it will take some time. Go and get your coeffee
 
